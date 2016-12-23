@@ -1,6 +1,8 @@
 # Estruturação de Front-end
 Essa é uma ideia de estruturação do front-end de um projeto com AngularJS.
 
+**Obs: ainda em desenvolvimento**
+
 ## Iniciativa
 A cada projeto que eu trabalho perco um bom tempo analisando e pensando qual a melhor organização de estrutura do projeto.
 Sei que existem várias ideias e padrões por aí, mas ainda nada que seja exatamente o que eu quero ou penso como deve ser meu projeto.
@@ -24,7 +26,7 @@ Este boilerplate foi desenvolvido utilizando as seguintes dependências:
 Atualmente trabalho e estou fissurado pelo [Stylus](http://stylus-lang.com), então utilizarei esse pré-processador nos exemplos.
 
 ### RSCSS
-Utilizo também a metodologia do [RSCSS](http://rscss.io/variants.html), gosto pelo fato de não sujar muito o HTML com nomes de classes gigantescos.
+Utilizo também a metodologia do [RSCSS](http://rscss.io/variants.html), gosto pelo fato de não sujar muito o HTML com nomes de classes enormes.
 
 ### Estrutura
 Para organizar os arquivos e pastas do css vou usar a ideia do Atomic Design:
@@ -58,8 +60,11 @@ stylus/
   app.styl
 ```
 Acho fantástica essa ideia de separar cada elemento do css, isso facilita muito na organização e manutenção do projeto.
+
 Como você pode ver a pasta `00-base/` é resopnsável pelos arquivos bases do projeto, como um normalize, variáveis, mixins e outras configurações globais do projeto.
+
 As pastas seguintes é a estruturação senguindo a ideia do Atomic Design e por fim o arquivo `app.styl` importa todos os arquivos.
+
 No Stylus consigo importar todos os arquivos de uma pasta, veja:
 
 ```
@@ -106,12 +111,16 @@ app/
   |  ...
 ```
 Então seguindo a mesma ideia do Atomic Design, porém separando na pasta `00-base/` os arquivos de configurações globais do projeto.
+
 Na pasta `01-global/` responsável por manter as funcionalidades globais, como services, directives etc...
+
 E na pasta `02-templates/` os arquivos separados por pastas para cada página/funcionalidade do projeto.
+
 Os arquivos HTML e CSS ficam juntos facilitando o desenvolvimento e a manutenção de cada página/funcionalidade pois a view (html) e o controller (js) andam juntos.
 
 ## Ambiente de desenvolvimento
 Essa estrutura devemos manter durante o desenvolvimento dentro de uma pasta chamada `source/`.
+
 Então numa visão geral a estrutura completa fica assim:
 ```
 source/
@@ -180,18 +189,21 @@ gulpfile.js
 package.json
 ```
 Essa estrura fica organizada para desenvolver e fácil de se achar.
+
 O arquivo `index.hmtl` na raiz será o arquivo principal da aplicação.
 
-## npm
+## Iniciando
+### npm
 
 Para gerenciar as dependências da aplicação vamos usar o [npm](https://www.npmjs.com/) para instalar o Bower e Gulp.
 ```
 npm install
 ```
 
-## Bower
+### Bower
 
 Agora precisamos pensa na instalação das dependências e módudos que vamos utilizar no projeto.
+
 Nesse caso estou utilizando o [Bower](https://bower.io/)
 ```
 bower install
@@ -202,12 +214,18 @@ bower install
 Enquanto desenvolvemos precisamos acompanhar nossa aplicação, para isso precisamos compilar e mover os arquivos da estrutura de desenvolvimento para uma pasta onde tudo deve funcionar ser publicada em produção.
 O [Gulp](http://gulpjs.com/) fará esse serviço gerando um único arquivo com as dependências do Bower e de nossos scripts, além de mover nossos arquivos HTML para apasta de publicação.
 
-*Importante*
+**Importante**
 Por mais que os arquivos HTML mudarão de pasta, a estrutura e caminho dos arquivos seguirá a mesma.
 
 ## Compilando
 
-Na pasta `source/` estão os arquivos de desenvolvimento, o Gulp irá compilar e mover os arquivos dessa estrutura em um pasta para ser publicada, vamos chamar de `public/`.
+Para gerar a pasta `public/` onde a aplicação funcionará precisamos dar o comando para o Gulp montar a estrutura:
+```
+gulp build
+```
+
+O Gulp irá compilar e mover os arquivos da estrutura de desenvolvimento e das dependências no Bower em um pasta para ser publicada, vamos chamar de `public/`.
+
 Vamos ver a estrutura final que o Gulp vai gerar:
 ```
 public/
@@ -233,8 +251,10 @@ public/
   index.html
 ```
 Veja que o Gulp gerará uma pasta chamada `public/` que é onde os arquivos de produção ficarão.
+
 Seguindo o exemplo da estrutura, veja que na pasta `public/app/` ficou apenas com os arquivos HTML enquanto os scripts foram concatenados em um único arquivo `public/assets/js/app.js`. O mesmo para o CSS e imagens.
-Então o caminhos dos arquivos continuaram o mesmos.
+
+Então o caminho dos arquivos continuaram o mesmos.
 
 Exemplo de caminho no CSS (Stylus):
 ```
@@ -244,4 +264,15 @@ HMTL e JS:
 ```
 'app/02-templates/home/home.html'
 ```
+Após gerar esses arquivos ja compilados, para automatizar as tarefas do Gulp rode o comando: 
+```
+gulp watch
+```
 
+O Gulp não irá minificar os arquivos de CSS e JS, isso porque no desenvolvimento, qualquer erro que de em seu script será mais fácil de achar o bug, quando os arquivos estão minificados isso dificulta muito.
+
+Então antes de publicar rode o comando:
+```
+gulp compress
+```
+Este comando gerará os arquivos da pasta `public` novamente com os arquivos minificados e preparados para deploy.
