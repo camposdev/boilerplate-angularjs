@@ -1,4 +1,4 @@
-# Estruturação de Front-end
+# Estruturação Front-end com Atomic Design
 Essa é uma ideia de estruturação do front-end de um projeto com AngularJS.
 
 **Obs: ainda em desenvolvimento**
