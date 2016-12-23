@@ -3,8 +3,10 @@ Essa é uma ideia de estruturação do front-end de um projeto com AngularJS.
 
 ## Iniciativa
 A cada projeto que eu trabalho perco um bom tempo analisando e pensando qual a melhor organização de estrutura do projeto.
-Sei que existe várias ideias e padrões por aí, mas ainda nada que seja exatamente o que eu quero ou penso como deve ser meu projeto.
+Sei que existem várias ideias e padrões por aí, mas ainda nada que seja exatamente o que eu quero ou penso como deve ser meu projeto.
+
 Pensando nisso, por que não cria meu próprio padrão? talvez isso seja apenas mais uma ideia, mas pode ser que alguém se identifique e queira usar.
+
 Você pode clonar este repositório para gerar um boilerplate com a estrutura preparada para você começar a desenvolver.
 Este boilerplate foi desenvolvido utilizando as seguintes dependências:
 
