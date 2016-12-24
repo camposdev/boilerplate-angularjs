@@ -1,4 +1,4 @@
-# Estruturação baseada em Atomic Design com AngularJS
+# Padronização baseada em Atomic Design com AngularJS
 Boilerplate com estrutura para AngularJS baseada em Atomic Design.
 
 ## Instalação
