@@ -1,0 +1,34 @@
+{
+  "name": "pattern-angularjs-atomic-design",
+  "version": "1.0.0",
+  "description": "Essa é uma ideia de estruturação do front-end de um projeto com AngularJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camposdev/pattern-angularjs-atomic-design.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camposdev/pattern-angularjs-atomic-design/issues"
+  },
+  "homepage": "https://github.com/camposdev/pattern-angularjs-atomic-design#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-filter": "^4.0.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-order": "^1.1.1",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-webserver": "^0.9.1",
+    "main-bower-files": "^2.13.1"
+  }
+}

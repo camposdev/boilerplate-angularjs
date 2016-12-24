@@ -1,0 +1,25 @@
+{
+  "name": "pattern-angularjs-atomic-design",
+  "description": "Essa é uma ideia de estruturação do front-end de um projeto com AngularJS.",
+  "main": "index.js",
+  "authors": [
+    "Felipe Campos <designeroficial@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/camposdev/pattern-angularjs-atomic-design",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-animate": "^1.6.0",
+    "angular-cookies": "^1.6.0",
+    "angular-sanitize": "^1.6.0",
+    "normalize-css": "^5.0.0",
+    "angular-ui-router": "ui-router#^0.3.2"
+  }
+}
