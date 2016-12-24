@@ -1,5 +1,5 @@
 # Estruturação baseada em Atomic Design com AngularJS
-Essa é uma ideia de estruturação de arquivos do front-end de um projeto com AngularJS.
+Boilerplate com estrutura para AngularJS baseada em Atomic Design.
 
 ## Iniciativa
 A cada projeto que eu trabalho perco um bom tempo analisando e pensando qual a melhor organização de estrutura do projeto.
