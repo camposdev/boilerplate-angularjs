@@ -1,6 +1,15 @@
 # Estruturação baseada em Atomic Design com AngularJS
 Boilerplate com estrutura para AngularJS baseada em Atomic Design.
 
+## Instalação
+* De um fork neste repositório
+* `git clone git@github.com:<seu-usuario>/bloilerplate-angularjs.git` 
+* `cd bloilerplate-angularjs`
+* `npm install`
+* `bower install`
+* `npm start`
+* `npm watch`
+
 ## Iniciativa
 A cada projeto que eu trabalho perco um bom tempo analisando e pensando qual a melhor organização de estrutura do projeto.
 
