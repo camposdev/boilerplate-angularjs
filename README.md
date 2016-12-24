@@ -25,10 +25,10 @@ E quem gerencia essas dependências são meus melhores amigos Gulp e Bower :)
 É claro que você pode usar o pré-processador e metodologia que quiser para escrever seu css, mas colocarei aqui as que eu uso atualmente, o Stylus.
 
 ### Stylus
-Atualmente trabalho e estou fissurado pelo [Stylus](http://stylus-lang.com), então já colquei alguns mixins e flexbox que sempre.
+Atualmente trabalho e estou fissurado pelo [Stylus](http://stylus-lang.com), então já coloquei um arquivo com mixins básicos e um mixin do flexbox que sempre uso em meus projetos.
 
 ### RSCSS
-Utilizo também a metodologia do [RSCSS](http://rscss.io/variants.html), gosto pelo fato de não sujar muito o HTML com nomes de classes enormes e a identação muito extendida.
+Utilizo também a metodologia do [RSCSS](http://rscss.io/index.html), gosto pelo fato de não sujar muito o HTML com nomes de classes enormes e a identação muito extendida.
 
 ### Estrutura
 Para organizar os arquivos e pastas do css vou usar a ideia do Atomic Design:
@@ -72,10 +72,10 @@ No Stylus consigo importar todos os arquivos de uma pasta sem precisar listar to
 ```
 /* app.styl */
 
-@import '00-base/**/*',
-        '01-atoms/**/*',
-        '02-molecules/**/*',
-        '03-organisms/**/*',
+@import '00-base/**/*'
+        '01-atoms/**/*'
+        '02-molecules/**/*'
+        '03-organisms/**/*'
         '04-templates/**/*'
 ```
 
@@ -204,7 +204,7 @@ npm install
 
 ### Bower
 
-Agora precisamos pensa na instalação das dependências e módudos que vamos utilizar no projeto.
+Agora precisamos baixar as dependências e módudos que vamos utilizar no projeto.
 
 Nesse caso estou utilizando o [Bower](https://bower.io/)
 ```
@@ -213,12 +213,11 @@ bower install
 
 ## Gulp
 
-Enquanto desenvolvemos precisamos acompanhar nossa aplicação, para isso precisamos compilar e mover os arquivos da estrutura de desenvolvimento para uma pasta onde tudo deve funcionar ser publicada em produção.
+Enquanto desenvolvemos precisamos acompanhar nossa aplicação, para isso precisamos compilar e mover os arquivos da estrutura de desenvolvimento para uma pasta onde tudo deve funcionar e será a mesma a ser publicada em produção.
 
-O [Gulp](http://gulpjs.com/) fará esse serviço gerando um único arquivo com as dependências do Bower e de nossos scripts, além de mover nossos arquivos HTML para a pasta de publicação.
+O [Gulp](http://gulpjs.com/) fará esse serviço gerando um único arquivo com as dependências do Bower e de nossos scripts, além de mover nossos arquivos HTML para a pasta de publicação que será a `public/`.
 
-**Importante**
-Por mais que os arquivos HTML mudarão de pasta, a estrutura e caminho dos arquivos seguirá a mesma.
+*Por mais que os arquivos HTML mudarão de pasta, a estrutura e caminho dos arquivos seguirá a mesma.*
 
 ## Compilando
 
@@ -227,9 +226,9 @@ Para gerar a pasta `public/` onde a aplicação funcionará precisamos dar o com
 gulp start
 ```
 
-O Gulp irá compilar e mover os arquivos da estrutura de desenvolvimento e das dependências no Bower em um pasta para ser publicada, vamos chamar de `public/`.
+O Gulp irá compilar e mover os arquivos da estrutura de desenvolvimento e das dependências no Bower na pasta `public/`.
 
-Vamos ver a estrutura final que o Gulp vai gerar:
+Seguindo este exemplo vamos ver a estrutura final que o Gulp gerará:
 ```
 public/
   app/
@@ -255,13 +254,13 @@ public/
   |  |  all.min.js -> Arquivos js minificados para produção
   index.html
 ```
-Veja que o Gulp criará uma pasta chamada `public/` que é onde os arquivos de produção ficarão.
+Veja que o Gulp criará uma pasta chamada `public/` que é onde os arquivos de produção devem ficar.
 
 Seguindo o exemplo da estrutura, veja que na pasta `public/app/` ficou apenas com os arquivos HTML enquanto os scripts foram concatenados em um único arquivo `public/assets/js/app.js`. O mesmo para o CSS e imagens.
 
 Então o caminho dos arquivos continuaram os mesmos.
 
-Exemplo de caminho no CSS (Stylus):
+Exemplo de caminho no CSS:
 ```
 '../images/my-image.jpg'
 ```
@@ -271,12 +270,12 @@ HMTL e JS:
 'app/02-templates/home/home.html'
 ```
 
-Após gerar esses arquivos ja compilados, para automatizar as tarefas do Gulp rode o comando: 
+Após gerar estes arquivos ja compilados, para automatizar as tarefas do Gulp rode o comando: 
 ```
 gulp watch
 ```
 
-E em outra aba do terminal ative o server pelo gulp também
+E em outra aba do terminal ative o server pelo gulp também:
 ```
 gulp server
 ```
@@ -286,7 +285,7 @@ Leia sobre o [gulp-webserver](https://www.npmjs.com/package/gulp-webserver).
 
 Pronto agora está tudo pronto e rodando para começar o desenvolvimento ;)
 
-O Gulp não irá minificar os arquivos de CSS e JS, isso porque no desenvolvimento, qualquer erro que de em seu script será mais fácil de achar o bug, quando os arquivos estão minificados isso dificulta muito.
+O Gulp não irá minificar os arquivos de CSS e JS, isso porque no desenvolvimento, qualquer erro em seu script será mais fácil de achar o bug, quando os arquivos estão minificados isso dificulta muito.
 
 Então antes de publicar rode o comando:
 ```
@@ -294,7 +293,7 @@ gulp build
 ```
 Este comando gerará os arquivos da pasta `public` com os arquivos minificados e preparados para deploy.
 
-Após a minificação dos arquivos altere as chamadas dos arquivos css e css no `index.html` para `all.min.css` e `all.min.js`.
+Após a minificação dos arquivos altere as chamadas dos arquivos css e css no `index.html` para `app/assets/css/all.min.css` e `app/assets/js/all.min.js`.
 
 ## é isso ae
 
