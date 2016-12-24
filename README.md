@@ -7,8 +7,8 @@ Boilerplate com estrutura para AngularJS baseada em Atomic Design.
 * `cd bloilerplate-angularjs`
 * `npm install`
 * `bower install`
-* `npm start`
-* `npm watch`
+* `gulp start`
+* `gulp watch`
 
 ## Iniciativa
 A cada projeto que eu trabalho perco um bom tempo analisando e pensando qual a melhor organização de estrutura do projeto.
