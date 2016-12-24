@@ -4,7 +4,7 @@ Boilerplate com estrutura para AngularJS baseada em Atomic Design.
 ## Instalação
 * De um fork neste repositório
 * `git clone git@github.com:SEU-USUARIO/boilerplate-angularjs.git` 
-* `cd bloilerplate-angularjs`
+* `cd boilerplate-angularjs`
 * `npm install`
 * `bower install`
 * `gulp start`
