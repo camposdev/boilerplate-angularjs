@@ -84,14 +84,20 @@ gulp.task( 'clean', function() {
 });
 
 
-gulp.task( 'build', function() {
+gulp.task( 'compress', function() {
 	var jsFilter = filter( '**/*.js', { restore: true } );
-	var cssFilter = filter( '**/*.css', { restore: true } );
+	var cssFilter = filter( ['**/*.css', styles], { restore: true } );
 
 	del.sync( dest );
 
 	gulp.src( bower().concat( scripts ) )
 		.pipe( jsFilter )
+		.pipe( order([
+			'bower_components/angular/angular.js',
+			'bower_components/**/*.js',
+			'source/app/00-base/app.module.js',
+			'source/app/**/*.js'
+		], { base: './' } ) )
 		.pipe( concat( 'all.min.js' ) )
 		.pipe( uglify() )
 		.pipe( gulp.dest( dest + 'assets/js' ) )
@@ -100,6 +106,11 @@ gulp.task( 'build', function() {
 	gulp.src( bower().concat( styles ) )
 		.pipe( cssFilter )
 		.pipe( stylus() )
+		.pipe( order([
+			'bower_components/normalize-css/normalize.css',
+			'bower_components/**/*.css',
+			styles
+		], { base: './' } ) )
 		.pipe( concat( 'all.min.css' ) )
 		.pipe( cssmin() )
 		.pipe( gulp.dest( dest + 'assets/css' ) )
@@ -117,6 +128,7 @@ gulp.task( 'server', function() {
 
 gulp.task( 'start', ['vendors', 'styles', 'scripts', 'html', 'images']);
 
+gulp.task( 'build', ['compress', 'html', 'images']);
 
 gulp.task( 'watch', function() {
 	gulp.watch( 'bower_components/**/*', ['vendors'] );

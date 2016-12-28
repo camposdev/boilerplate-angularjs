@@ -1,14 +1,5 @@
-# Padronização baseada em Atomic Design com AngularJS
-Boilerplate com estrutura para AngularJS baseada em Atomic Design.
-
-## Instalação
-* De um fork neste repositório
-* `git clone git@github.com:SEU-USUARIO/boilerplate-angularjs.git` 
-* `cd boilerplate-angularjs`
-* `npm install`
-* `bower install`
-* `gulp start`
-* `gulp watch`
+# Estruturação baseada em Atomic Design com AngularJS
+Essa é uma ideia de estruturação de arquivos do front-end de um projeto com AngularJS.
 
 ## Iniciativa
 A cada projeto que eu trabalho perco um bom tempo analisando e pensando qual a melhor organização de estrutura do projeto.
@@ -92,22 +83,22 @@ No Stylus consigo importar todos os arquivos de uma pasta sem precisar listar to
 É nessa parte que tive muita dificuldade em achar algo que funcionasse para mim, então a ideia aqui seria manter o html e o js referente ao mesmo template juntos na mesma pasta:
 ```
 app/
-  00-base/
-  |  _app.module.js   -> Arquivo inicial do projeto
-  |  _app.config.js   -> Arquivo de configuração, rotas, etc...
+  00-global/
+  |  app.module.js   -> Arquivo inicial do projeto
+  |  app.config.js   -> Arquivo de configuração
+  |  app.routes.js   -> Arquivo de rotas
   |  ...
-  01-global/
-  |  services/
+  01-components/
+  |  webserver/
   |  |  web.service.js
   |  |  ...
   |  filters/
   |  |  toTrusted.filter.js
   |  |  ...
-  |  directives/
-  |  |  tables/
-  |  |  |  table.html
-  |  |  |  table.directive.js
-  |  |  |  ...
+  |  tables/
+  |  |  table.html
+  |  |  table.directive.js
+  |  |  ...
   |  ...
   02-templates/
   |  home/
@@ -121,9 +112,9 @@ app/
   |  |  ...
   |  ...
 ```
-Então baseada na ideia do Atomic Design, porém separando na pasta `00-base/` os arquivos de iniciação e configurações do projeto.
+Então baseada na ideia do Atomic Design, porém separando na pasta `00-global/` os arquivos de iniciação e configurações do projeto.
 
-Na pasta `01-global/` responsável por manter as funcionalidades globais, como services, directives etc...
+Na pasta `01-components/` responsável por manter os componentes como por exemplo: modais, sidebar, widgets, header, etc...
 
 E na pasta `02-templates/` os arquivos separados por pastas para cada página ou funcionalidade do projeto.
 
@@ -136,23 +127,22 @@ Então numa visão geral a estrutura completa fica assim:
 ```
 source/
   app/
-  |  00-base/
-  |  |  _app.module.js
-  |  |  _app.config.js
+  |  00-global/
+  |  |  app.module.js
+  |  |  app.config.js
+  |  |  app.routes.js
   |  |  ...
-  |  01-global/
-  |  |  services/
+  |  01-components/
+  |  |  webserver/
   |  |  |  web.service.js
   |  |  |  ...
   |  |  filters/
   |  |  |  toTrusted.filter.js
   |  |  |  ...
-  |  |  directives/
-  |  |  |  tables/
-  |  |  |  |  table.html
-  |  |  |  |  table.directive.js
-  |  |  |  ...
-  |  |  ...
+  |  |  tables/
+  |  |  |  table.html
+  |  |  |  table.directive.js
+  |  |  |    ...
   |  02-templates/
   |  |  home/
   |  |  |  home.html
@@ -241,7 +231,7 @@ Seguindo este exemplo vamos ver a estrutura final que o Gulp gerará:
 ```
 public/
   app/
-  |  01-global/
+  |  01-components/
   |  |  directives/
   |  |  |  tables/
   |  |  |  |  table.html
@@ -305,5 +295,7 @@ Este comando gerará os arquivos da pasta `public` com os arquivos minificados e
 Após a minificação dos arquivos altere as chamadas dos arquivos css e css no `index.html` para `app/assets/css/all.min.css` e `app/assets/js/all.min.js`.
 
 ## é isso ae
+
+Conforme vou utilizando esse boilerplate eu vou melhorando, então se você curtiu de um watch para saber quando alguma coisa for melhorada ;)
 
 Qualquer sugestão será muito bem vinda, afinal, se nós como desenvolvedores não soubermos aceitar críticas que nos leve a melhorar não temos como crescer, e isso é o que eu busco diariamente.

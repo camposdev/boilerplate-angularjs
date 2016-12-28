@@ -1,7 +1,19 @@
-app.controller('HomeController', ['$scope', function( $scope ){
-  
-  var vm = this;
+(function() {
 
-  vm.world = 'World!';
+  'use strict';
 
-}]);
+  angular
+    .module( 'App' )
+    .controller( 'HomeController', HomeController );
+
+    HomeController.$inject = [ '$rootScope' ];
+
+    function HomeController( $rootScope ){
+
+      var vm = this;
+
+      vm.world = 'World!';
+
+    }
+
+})();
