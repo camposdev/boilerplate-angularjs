@@ -67,15 +67,13 @@ gulp.task( 'scripts', function() {
 gulp.task( 'images', function() {
 	return gulp.src( images )
 		.pipe( imagemin( { optimizationLevel: 3, progressive: true, interlaced: true } ) )
-  	.pipe( gulp.dest( dest + 'assets/images' ) )
-  	.pipe( notify( 'Images ok!' ) );
+  	.pipe( gulp.dest( dest + 'assets/images' ) );
 });
 
 
 gulp.task( 'html', function() {
 	return gulp.src( html )
-		.pipe( gulp.dest( dest ) )
-		.pipe( notify( 'HTML ok!' ) );
+		.pipe( gulp.dest( dest ) );
 });
 
 
