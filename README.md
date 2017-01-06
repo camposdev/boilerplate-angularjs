@@ -73,10 +73,10 @@ No Stylus consigo importar todos os arquivos de uma pasta sem precisar listar to
 /* app.styl */
 
 @import '00-base/**/*'
-        '01-atoms/**/*'
-        '02-molecules/**/*'
-        '03-organisms/**/*'
-        '04-templates/**/*'
+@import '01-atoms/**/*'
+@import '02-molecules/**/*'
+@import '03-organisms/**/*'
+@import '04-templates/**/*'
 ```
 
 ## HTML e JS
